@@ -36,9 +36,16 @@
   h2{margin:0;font-size:16px;font-weight:700}
   @media(min-width:900px){h2{font-size:18px}}
   .hint{font-size:12px;color:var(--muted)}
-  .featured{display:block;text-decoration:none;color:inherit;border-radius:22px;overflow:hidden;background:var(--surface);border:1px solid var(--line);cursor:pointer;text-align:left;padding:0;width:100%}
-  .featured img.shot{display:block;width:100%;height:220px;object-fit:cover;object-position:top;background:#0b0d12}
-  .featured .meta{padding:14px 16px 16px;display:flex;align-items:center;gap:12px}
+  .featured{position:relative;display:grid;grid-template-columns:1fr 150px;gap:12px;align-items:center;min-height:240px;overflow:hidden;text-decoration:none;color:inherit;border-radius:22px;border:1px solid var(--line);cursor:pointer;text-align:left;padding:18px 0 18px 16px;width:100%;background:linear-gradient(135deg,var(--hero,#1f2330) 0%,#0f1115 100%)}
+  .featured .glow{position:absolute;inset:auto auto -40% -10%;width:60%;aspect-ratio:1;border-radius:50%;background:var(--hero,#1f2330);filter:blur(60px);opacity:.55;pointer-events:none}
+  .featured .copy{position:relative;display:flex;flex-direction:column;gap:6px;min-width:0}
+  .featured .copy .icon{width:60px;height:60px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  .featured .name{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  .featured .tag{white-space:normal;font-size:13px}
+  .featured .actions{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+  .featured .phone{position:relative;align-self:end;height:230px;margin-bottom:-60px;margin-right:-6px;transform:rotate(-6deg);transform-origin:bottom right;border-radius:22px;border:5px solid rgba(255,255,255,.14);box-shadow:0 20px 40px rgba(0,0,0,.5);overflow:hidden;background:#0b0d12}
+  .featured .phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 9%}
+  @media(min-width:900px){.featured{grid-template-columns:1fr 300px;min-height:300px;padding:28px 0 28px 28px;gap:24px}.featured .name{font-size:30px}.featured .tag{font-size:15px}.featured .copy .icon{width:72px;height:72px;border-radius:22px}.featured .phone{height:330px;margin-bottom:-90px;margin-right:12px}}
   .kicker{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
   .icon{width:56px;height:56px;border-radius:16px;flex:none;background:#0b0d12;object-fit:cover}
   .name{font-size:16px;font-weight:700}
@@ -190,10 +197,16 @@
   if (feat) {
     const f = $('#featured');
     f.addEventListener('click', () => open(feat));
-    if (feat.screenshots?.[0]) f.append(el('img', { class: 'shot', src: feat.screenshots[0], alt: `${feat.name} screenshot` }));
-    f.append(el('div', { class: 'meta' }, el('img', { class: 'icon', src: feat.icon, alt: '' }),
-      el('div', { class: 'grow' }, el('div', { class: 'kicker' }, 'Latest update'), el('div', { class: 'name' }, feat.name), el('div', { class: 'tag' }, feat.tagline || '')),
-      installBtn(feat)));
+    if (feat.color) f.style.setProperty('--hero', feat.color);
+    f.append(el('div', { class: 'glow', 'aria-hidden': 'true' }));
+    f.append(el('div', { class: 'copy' },
+      el('img', { class: 'icon', src: feat.icon, alt: '' }),
+      el('div', { class: 'kicker' }, 'Latest update'),
+      el('div', { class: 'name' }, feat.name),
+      el('div', { class: 'tag' }, feat.tagline || ''),
+      el('div', { class: 'fine' }, fine(feat)),
+      el('div', { class: 'actions' }, installBtn(feat), el('span', { class: 'btn ghost' }, 'Details'))));
+    if (feat.screenshots?.[0]) f.append(el('div', { class: 'phone', 'aria-hidden': 'true' }, el('img', { src: feat.screenshots[0], alt: '' })));
   } else $('#sec-featured').hidden = true;
 
   const row = a => el('button', { class: 'row', type: 'button', onclick: () => open(a) },

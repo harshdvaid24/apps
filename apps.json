@@ -32,7 +32,8 @@
         "Solar",
         "Weather",
         "Alerts"
-      ]
+      ],
+      "color": "#0f2a4a"
     },
     {
       "slug": "generation-camera",
@@ -60,7 +61,8 @@
         "Camera",
         "Photo",
         "Offline"
-      ]
+      ],
+      "color": "#3b2a08"
     },
     {
       "slug": "vaidya",
@@ -88,7 +90,8 @@
         "Health",
         "Ayurveda",
         "AI"
-      ]
+      ],
+      "color": "#1f3a2b"
     },
     {
       "slug": "aambo",
@@ -109,7 +112,8 @@
       "tags": [
         "Community",
         "Social"
-      ]
+      ],
+      "color": "#6b3410"
     },
     {
       "slug": "indian-army-tactical",
@@ -201,7 +205,8 @@
         "Android TV",
         "Screen mirroring",
         "Beta"
-      ]
+      ],
+      "color": "#1b2a3a"
     }
   ],
   "web": [
