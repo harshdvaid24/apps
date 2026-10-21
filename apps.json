@@ -1,0 +1,272 @@
+{
+  "store": {
+    "name": "Harsh's Apps",
+    "tagline": "Apps and sites I built. Install the APK straight from here.",
+    "owner": "harshdvaid24",
+    "releasesBase": "https://github.com/harshdvaid24/apps/releases/download",
+    "updated": "2026-10-22"
+  },
+  "apps": [
+    {
+      "slug": "solarlens",
+      "name": "SolarLens",
+      "category": "android",
+      "tagline": "A clearer, smarter dashboard for your home solar plant",
+      "description": "Live output, a weather forecast that learns from your own panels, 30-day outlook, problem alerts, cleaning reminders and plain-language stats. Signs in with your existing Polycab PV monitoring account.",
+      "package": "com.harshvaid.solarlens",
+      "version": "1.0",
+      "versionCode": 1,
+      "minSdk": 24,
+      "sizeBytes": 33129215,
+      "updated": "2026-10-22",
+      "icon": "assets/icons/solarlens.png",
+      "screenshots": [
+        "assets/shots/solarlens-01-home.png",
+        "assets/shots/solarlens-02-home-forecast.png",
+        "assets/shots/solarlens-05-stats.png",
+        "assets/shots/solarlens-07-devices.png"
+      ],
+      "apk": "https://github.com/harshdvaid24/apps/releases/download/solarlens/solarlens-1.0.apk",
+      "repo": "https://github.com/harshdvaid24/SolarLens",
+      "tags": [
+        "Solar",
+        "Weather",
+        "Alerts"
+      ]
+    },
+    {
+      "slug": "generation-camera",
+      "name": "Generation Camera",
+      "category": "android",
+      "tagline": "A camera with a decade dial",
+      "description": "Pick one of 14 stops on the Eras Dial, every decade from the 1900s to today, and shoot photos with that era's look. Instant prints, offline, no account.",
+      "package": "com.generationcamera",
+      "version": "1.2.1",
+      "versionCode": 8,
+      "minSdk": null,
+      "sizeBytes": 3603077,
+      "updated": "2026-10-07",
+      "icon": "assets/icons/generation-camera.png",
+      "screenshots": [
+        "assets/shots/generation-camera-1_every-decade.jpg",
+        "assets/shots/generation-camera-2_fourteen-stops.jpg",
+        "assets/shots/generation-camera-3_instant-prints.jpg",
+        "assets/shots/generation-camera-5_era-controls.jpg"
+      ],
+      "apk": "https://github.com/harshdvaid24/apps/releases/download/generation-camera/generation-camera-1.2.1.apk",
+      "repo": "https://github.com/harshdvaid24/Generation-Camera",
+      "site": "https://harshdvaid24.github.io/Generation-Camera/",
+      "tags": [
+        "Camera",
+        "Photo",
+        "Offline"
+      ]
+    },
+    {
+      "slug": "vaidya",
+      "name": "Vaidya",
+      "category": "android",
+      "tagline": "Ayurvedic intelligence companion",
+      "description": "Find your dosha, chat with an Ayurvedic guide and get diet and routine suggestions. Mobile companion to the Vaidya web platform.",
+      "package": "com.vaidya.app",
+      "version": "0.2.0",
+      "versionCode": 42,
+      "minSdk": null,
+      "sizeBytes": 85014871,
+      "updated": "2026-10-17",
+      "icon": "assets/icons/vaidya.png",
+      "screenshots": [
+        "assets/shots/vaidya-06-screenshot-en-02-home-1080x1920.png",
+        "assets/shots/vaidya-06-screenshot-en-01-result-1080x1920.png",
+        "assets/shots/vaidya-06-screenshot-en-03-chat-1080x1920.png",
+        "assets/shots/vaidya-06-screenshot-en-04-diet-1080x1920.png"
+      ],
+      "apk": "https://github.com/harshdvaid24/apps/releases/download/vaidya/vaidya-0.2.0.apk",
+      "repo": "https://github.com/harshdvaid24/vaidya",
+      "site": "https://vaidya-beryl.vercel.app",
+      "tags": [
+        "Health",
+        "Ayurveda",
+        "AI"
+      ]
+    },
+    {
+      "slug": "aambo",
+      "name": "Aambo",
+      "category": "android",
+      "tagline": "Your community, in one place",
+      "description": "A hyper-local community platform: family trees, matrimony matchmaking, a news feed and a member directory.",
+      "package": "com.aambo",
+      "version": "1.0",
+      "versionCode": 1,
+      "minSdk": null,
+      "sizeBytes": 83828948,
+      "updated": "2026-10-09",
+      "icon": "assets/icons/aambo.png",
+      "screenshots": [],
+      "apk": "https://github.com/harshdvaid24/apps/releases/download/aambo/aambo-1.0.apk",
+      "repo": "https://github.com/harshdvaid24/Aambo",
+      "tags": [
+        "Community",
+        "Social"
+      ]
+    },
+    {
+      "slug": "indian-army-tactical",
+      "name": "Indian Army Tactical",
+      "category": "wear",
+      "tagline": "Tactical military watch face",
+      "description": "A Wear OS watch face with a tactical, military-inspired dial. Install on the watch from its paired phone.",
+      "package": "com.army.tectical",
+      "version": "1.2.3",
+      "versionCode": 11,
+      "minSdk": null,
+      "sizeBytes": 109455,
+      "updated": "2026-04-11",
+      "icon": "assets/icons/indian-army-tactical.png",
+      "screenshots": [
+        "assets/shots/indian-army-tactical-screenshot_main.png",
+        "assets/shots/indian-army-tactical-screenshot_active.png"
+      ],
+      "apk": "https://github.com/harshdvaid24/apps/releases/download/indian-army-tactical/indian-army-tactical-1.2.3.apk",
+      "repo": "https://github.com/harshdvaid24/indian-army-tactical",
+      "site": "https://harshdvaid24.github.io/indian-army-tactical/",
+      "tags": [
+        "Wear OS",
+        "Watch face"
+      ]
+    },
+    {
+      "slug": "dw-classic",
+      "name": "DW Classic",
+      "category": "wear",
+      "tagline": "Clean, minimal classic watch face",
+      "description": "A quiet, classic Wear OS watch face. Install on the watch from its paired phone.",
+      "package": "com.watchforge.dwclassic",
+      "version": "1.0.0",
+      "versionCode": 1,
+      "minSdk": null,
+      "sizeBytes": 21307,
+      "updated": "2026-04-17",
+      "icon": "assets/icons/dw-classic.png",
+      "screenshots": [
+        "assets/shots/dw-classic-preview.png"
+      ],
+      "apk": "https://github.com/harshdvaid24/apps/releases/download/dw-classic/dw-classic-1.0.0.apk",
+      "repo": "https://github.com/harshdvaid24/indian-army-tactical",
+      "tags": [
+        "Wear OS",
+        "Watch face"
+      ]
+    },
+    {
+      "slug": "f91w-classic",
+      "name": "F-91W Classic",
+      "category": "wear",
+      "tagline": "The iconic digital watch, on your wrist again",
+      "description": "The classic digital watch look as a Wear OS watch face. Install on the watch from its paired phone.",
+      "package": "com.watchforge.f91wclassic",
+      "version": "1.0.0",
+      "versionCode": 1,
+      "minSdk": null,
+      "sizeBytes": 20367,
+      "updated": "2026-04-17",
+      "icon": "assets/icons/f91w-classic.png",
+      "screenshots": [
+        "assets/shots/f91w-classic-preview.png"
+      ],
+      "apk": "https://github.com/harshdvaid24/apps/releases/download/f91w-classic/f91w-classic-1.0.0.apk",
+      "repo": "https://github.com/harshdvaid24/indian-army-tactical",
+      "tags": [
+        "Wear OS",
+        "Watch face"
+      ]
+    },
+    {
+      "slug": "screencast-tv",
+      "name": "ScreenCast TV",
+      "category": "tv",
+      "tagline": "Mirror your Mac to the TV",
+      "description": "Mirror your MacBook screen and audio to a Samsung Smart TV or Jio set-top box. Android TV receiver app; pair it with the Mac sender. Early build.",
+      "package": "com.screencasttv",
+      "version": "2.0",
+      "versionCode": 2,
+      "minSdk": null,
+      "sizeBytes": 4257114,
+      "updated": "2026-03-05",
+      "icon": "assets/icons/screencast-tv.png",
+      "screenshots": [],
+      "apk": "https://github.com/harshdvaid24/apps/releases/download/screencast-tv/screencast-tv-2.0.apk",
+      "tags": [
+        "Android TV",
+        "Screen mirroring",
+        "Beta"
+      ]
+    }
+  ],
+  "web": [
+    {
+      "slug": "vaidya-web",
+      "name": "Vaidya",
+      "tagline": "Ayurvedic Intelligence Platform",
+      "description": "Dosha assessment, Ayurvedic chat and routines, on the web.",
+      "url": "https://vaidya-beryl.vercel.app",
+      "cover": "assets/web/vaidya.png",
+      "repo": "https://github.com/harshdvaid24/vaidya",
+      "tags": [
+        "Next.js",
+        "AI"
+      ]
+    },
+    {
+      "slug": "muon",
+      "name": "Muon",
+      "tagline": "Your Mac's local AI, one keystroke away",
+      "description": "Site for Muon, a macOS app that runs local AI from a hotkey.",
+      "url": "https://harshdvaid24.github.io/muon/",
+      "cover": "assets/web/muon.png",
+      "repo": "https://github.com/harshdvaid24/muon",
+      "tags": [
+        "macOS",
+        "Local AI"
+      ]
+    },
+    {
+      "slug": "generation-camera-site",
+      "name": "Generation Camera",
+      "tagline": "A camera with a decade dial",
+      "description": "Landing page for the Generation Camera app.",
+      "url": "https://harshdvaid24.github.io/Generation-Camera/",
+      "cover": "assets/web/generation-camera.png",
+      "repo": "https://github.com/harshdvaid24/Generation-Camera",
+      "tags": [
+        "Landing page"
+      ]
+    },
+    {
+      "slug": "indian-army-tactical-site",
+      "name": "Indian Army Tactical",
+      "tagline": "Watch face site",
+      "description": "Landing and privacy pages for the Indian Army Tactical watch face.",
+      "url": "https://harshdvaid24.github.io/indian-army-tactical/",
+      "cover": "assets/web/indian-army-tactical.png",
+      "repo": "https://github.com/harshdvaid24/indian-army-tactical",
+      "tags": [
+        "Landing page",
+        "Wear OS"
+      ]
+    },
+    {
+      "slug": "gh-radar",
+      "name": "gh-radar",
+      "tagline": "GitHub trending, milestones and records",
+      "description": "A nightly pipeline over GH Archive events, rendered as a static dashboard.",
+      "url": "https://gh-radar.pages.dev",
+      "cover": null,
+      "tags": [
+        "Dashboard",
+        "Data"
+      ]
+    }
+  ]
+}
