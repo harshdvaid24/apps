@@ -2,9 +2,247 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Harsh's Apps</title>
-<style>body{margin:0;font-family:system-ui,sans-serif;background:#0d0d0d;color:#f0efec;display:grid;place-items:center;min-height:100vh}p{opacity:.7}</style>
+<meta name="description" content="Apps and sites Harsh built. Install the Android APKs straight from your phone.">
+<meta name="theme-color" content="#0f1115">
+<link rel="icon" href="assets/icons/solarlens.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0f1115;--surface:#171a21;--surface2:#12151b;--line:#262a33;--line2:#2a2f3a;--ink:#f3f4f6;--ink2:#c7ceda;--muted:#9aa3b2;--dim:#6f7a8a;--chip:#1f2330;--accent:#f5a524;--accent-ink:#0f1115}
+  *{box-sizing:border-box}
+  html{color-scheme:dark}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent)}
+  button{font:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:24px 16px 56px;display:flex;flex-direction:column;gap:18px}
+  @media(min-width:900px){.wrap{padding:40px 48px 64px;gap:28px}}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:44px;height:44px;border-radius:14px;background:var(--accent);display:grid;place-items:center;flex:none}
+  h1{margin:0;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  @media(min-width:900px){h1{font-size:30px}.mark{width:52px;height:52px;border-radius:16px}}
+  .sub{font-size:12px;color:var(--muted);margin-top:2px}
+  .iconbtn{width:44px;height:44px;border-radius:22px;background:var(--surface);display:grid;place-items:center;text-decoration:none;border:1px solid var(--line)}
+  .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:14px;cursor:pointer}
+  .chip[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+  .chip:focus-visible,.row:focus-visible,.btn:focus-visible,.tile:focus-visible,.web:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  section{display:flex;flex-direction:column;gap:10px}
+  section[hidden]{display:none}
+  .sechead{display:flex;align-items:baseline;justify-content:space-between;margin-top:4px}
+  h2{margin:0;font-size:16px;font-weight:700}
+  @media(min-width:900px){h2{font-size:18px}}
+  .hint{font-size:12px;color:var(--muted)}
+  .featured{display:block;text-decoration:none;color:inherit;border-radius:22px;overflow:hidden;background:var(--surface);border:1px solid var(--line);cursor:pointer;text-align:left;padding:0;width:100%}
+  .featured img.shot{display:block;width:100%;height:220px;object-fit:cover;object-position:top;background:#0b0d12}
+  .featured .meta{padding:14px 16px 16px;display:flex;align-items:center;gap:12px}
+  .kicker{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .icon{width:56px;height:56px;border-radius:16px;flex:none;background:#0b0d12;object-fit:cover}
+  .name{font-size:16px;font-weight:700}
+  .featured .name{font-size:18px}
+  .tag{font-size:13px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .fine{font-size:12px;color:var(--dim);margin-top:4px}
+  .grow{flex:1;min-width:0}
+  .btn{flex:none;min-height:40px;padding:0 18px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border:0;cursor:pointer}
+  .btn.ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+  .list{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:900px){.list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+  .row{display:flex;align-items:center;gap:12px;padding:12px;border-radius:18px;background:var(--surface);border:1px solid var(--line);cursor:pointer;text-align:left;width:100%;color:inherit}
+  .badge{font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px;background:var(--line2);color:var(--ink2);vertical-align:middle;margin-left:6px}
+  .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  @media(min-width:900px){.grid3{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}}
+  .tile{padding:12px 10px;border-radius:18px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;cursor:pointer;color:inherit}
+  .tile img{width:64px;height:64px;border-radius:32px;object-fit:cover;background:#0b0d12}
+  .tile .name{font-size:13px;font-weight:600;line-height:1.2}
+  .tile .fine{margin-top:0}
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  @media(min-width:900px){.grid2{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+  .web{text-decoration:none;color:inherit;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);display:block}
+  .web .cover{display:block;width:100%;height:96px;object-fit:cover;background:#0b0d12}
+  .web .ph{height:96px;background:var(--chip);display:grid;place-items:center;font-size:26px;font-weight:800;color:var(--dim)}
+  @media(min-width:900px){.web .cover,.web .ph{height:120px}}
+  .web .meta{padding:10px 12px 12px}
+  .web .name{font-size:14px}
+  .note{margin-top:8px;padding:14px 16px;border-radius:18px;background:var(--surface2);border:1px dashed var(--line2);display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.5}
+  .note b{color:var(--ink)}
+  .empty{color:var(--muted);font-size:14px;padding:24px 0;text-align:center}
+  /* detail sheet */
+  dialog{border:0;padding:0;background:transparent;max-width:none;width:100%;height:100%;max-height:none;margin:0}
+  dialog::backdrop{background:rgba(0,0,0,.6)}
+  .sheet{position:fixed;inset:auto 0 0 0;max-height:92vh;overflow:auto;background:var(--bg);color:var(--ink);border-radius:24px 24px 0 0;border:1px solid var(--line);border-bottom:0;padding:12px 16px 40px;display:flex;flex-direction:column;gap:16px;max-width:620px;margin:0 auto}
+  @media(min-width:900px){.sheet{inset:50% auto auto 50%;transform:translate(-50%,-50%);border-radius:24px;border-bottom:1px solid var(--line);max-height:90vh;width:620px}}
+  .grab{width:40px;height:4px;border-radius:2px;background:var(--line2);margin:0 auto}
+  .sheet-top{display:flex;align-items:center;justify-content:space-between}
+  .close{min-height:44px;background:none;border:0;color:var(--ink);font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:4px;cursor:pointer;padding:0}
+  .srclink{min-height:44px;display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none}
+  .hero{display:flex;align-items:center;gap:14px}
+  .hero img{width:84px;height:84px;border-radius:24px;flex:none;object-fit:cover;background:#0b0d12}
+  .hero h3{margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  .hero .tag{white-space:normal;font-size:14px;margin-top:4px}
+  .tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  .tags span{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--ink2)}
+  .install{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:16px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-size:16px;font-weight:800}
+  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .stat{padding:10px 6px;border-radius:14px;background:var(--surface);border:1px solid var(--line);text-align:center}
+  .stat .k{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+  .stat .v{font-size:14px;font-weight:700;margin-top:3px}
+  .stat .v.small{font-size:11px;font-weight:600;word-break:break-all;color:var(--ink2);margin-top:4px}
+  .shots{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory}
+  .shots img{flex:none;width:190px;height:404px;object-fit:cover;object-position:top;border-radius:16px;border:1px solid var(--line);scroll-snap-align:start;background:#0b0d12}
+  .shots img.wide{width:300px;height:auto;max-height:220px;object-fit:contain}
+  .about{font-size:14px;color:var(--ink2);line-height:1.55}
+  .links{display:flex;gap:8px;flex-wrap:wrap}
+  @media(prefers-reduced-motion:no-preference){.row,.tile,.web,.featured{transition:transform .15s ease,border-color .15s ease}.row:hover,.tile:hover,.web:hover,.featured:hover{transform:translateY(-1px);border-color:#343a46}}
+</style>
 </head>
-<body><div><h1>Harsh's Apps</h1><p>Store page is being designed — APKs are already on the <a href="https://github.com/harshdvaid24/apps/releases" style="color:#f5a524">releases page</a>.</p></div></body>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f1115" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></svg></div>
+      <div><h1 id="store-name">Harsh's Apps</h1><div class="sub" id="store-sub">loading…</div></div>
+    </div>
+    <a class="iconbtn" id="gh-link" href="https://github.com/harshdvaid24" aria-label="GitHub profile"><svg width="22" height="22" viewBox="0 0 24 24" fill="#f3f4f6" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.9-.3 2.8 1a9.5 9.5 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1a3.6 3.6 0 0 1 .1 2.7 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.8-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+  </header>
+
+  <div class="chips" role="group" aria-label="Filter">
+    <button class="chip" data-cat="all" aria-pressed="true">All</button>
+    <button class="chip" data-cat="android" aria-pressed="false">Android</button>
+    <button class="chip" data-cat="wear" aria-pressed="false">Wear OS</button>
+    <button class="chip" data-cat="tv" aria-pressed="false">TV</button>
+    <button class="chip" data-cat="web" aria-pressed="false">Web</button>
+  </div>
+
+  <section id="sec-featured" data-cat="android"><button class="featured" id="featured" type="button" aria-label="Featured app"></button></section>
+
+  <section id="sec-android" data-cat="android">
+    <div class="sechead"><h2>Android</h2><span class="hint">tap Install, then open the download</span></div>
+    <div class="list" id="list-android"></div>
+  </section>
+
+  <section id="sec-wear" data-cat="wear">
+    <div class="sechead"><h2>Wear OS</h2><span class="hint">install from the paired phone</span></div>
+    <div class="grid3" id="list-wear"></div>
+  </section>
+
+  <section id="sec-tv" data-cat="tv">
+    <div class="sechead"><h2>TV</h2><span class="hint">sideload on Android TV</span></div>
+    <div class="list" id="list-tv"></div>
+  </section>
+
+  <section id="sec-web" data-cat="web">
+    <div class="sechead"><h2>Web</h2><span class="hint">opens in the browser</span></div>
+    <div class="grid2" id="list-web"></div>
+  </section>
+
+  <div class="note"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9aa3b2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.5"/></svg><div><b>First install?</b> Android asks once to allow installs from Chrome — tap <b>Settings → Allow</b>, then open the downloaded file. Updates install over the old version and keep your data. Apps here are personal builds signed by me.</div></div>
+</div>
+
+<dialog id="sheet" aria-labelledby="d-name">
+  <div class="sheet">
+    <div class="grab" aria-hidden="true"></div>
+    <div class="sheet-top">
+      <button class="close" id="d-close" type="button"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Store</button>
+      <a class="srclink" id="d-repo" href="#" target="_blank" rel="noopener" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.9-.3 2.8 1a9.5 9.5 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1a3.6 3.6 0 0 1 .1 2.7 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.8-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>Source</a>
+    </div>
+    <div class="hero"><img id="d-icon" alt=""><div class="grow"><h3 id="d-name"></h3><div class="tag" id="d-tagline"></div><div class="tags" id="d-tags"></div></div></div>
+    <a class="install" id="d-install" href="#"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1115" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></svg><span id="d-install-label">Install</span></a>
+    <div class="stats">
+      <div class="stat"><div class="k">Version</div><div class="v" id="d-version"></div></div>
+      <div class="stat"><div class="k">Android</div><div class="v" id="d-android"></div></div>
+      <div class="stat"><div class="k">Updated</div><div class="v" id="d-updated"></div></div>
+      <div class="stat"><div class="k">Package</div><div class="v small" id="d-package"></div></div>
+    </div>
+    <div class="shots" id="d-shots"></div>
+    <div><h2 style="margin-bottom:8px">About</h2><div class="about" id="d-desc"></div></div>
+    <div class="links" id="d-links"></div>
+    <div class="note" style="margin-top:0"><div><b>Updating?</b> Install over the old version — your sign-in and settings stay. Same signing key every release.</div></div>
+  </div>
+</dialog>
+
+<script>
+(async function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const el = (tag, attrs = {}, ...kids) => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'class') n.className = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else if (v !== null && v !== undefined) n.setAttribute(k, v); } for (const k of kids) n.append(k); return n; };
+  const MB = b => b >= 1e6 ? `${(b / 1e6).toFixed(b >= 1e7 ? 0 : 1)} MB` : `${Math.round(b / 1e3)} KB`;
+  const ANDROID = { 21: '5.0', 22: '5.1', 23: '6.0', 24: '7.0', 25: '7.1', 26: '8.0', 27: '8.1', 28: '9', 29: '10', 30: '11', 31: '12', 32: '12L', 33: '13', 34: '14', 35: '15', 36: '16', 37: '17' };
+  const andro = sdk => sdk ? `${ANDROID[sdk] || sdk}+` : '–';
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const day = iso => { const [y, m, d] = (iso || '').split('-').map(Number); return y ? `${d} ${MON[m - 1]}${y !== new Date().getFullYear() ? ' ' + y : ''}` : '–'; };
+  const catLabel = { android: 'Android', wear: 'Wear OS', tv: 'Android TV' };
+
+  let data;
+  try { data = await (await fetch('apps.json', { cache: 'no-cache' })).json(); }
+  catch (e) { $('#store-sub').textContent = 'Could not load the app list.'; return; }
+  const apps = data.apps || [], web = data.web || [];
+  $('#store-name').textContent = data.store?.name || "Harsh's Apps";
+  $('#store-sub').textContent = `${apps.length} app${apps.length === 1 ? '' : 's'} · ${web.length} site${web.length === 1 ? '' : 's'} · updated ${day(data.store?.updated)}`;
+  if (data.store?.owner) $('#gh-link').href = `https://github.com/${data.store.owner}`;
+
+  const fine = a => `v${a.version} · ${MB(a.sizeBytes)} · ${a.category === 'tv' ? 'Android TV' : 'Android ' + andro(a.minSdk)}`;
+  const installBtn = (a, cls = 'btn') => el('a', { class: cls, href: a.apk, download: '', onclick: e => e.stopPropagation(), 'aria-label': `Install ${a.name}` }, 'Install');
+
+  // Featured = most recently updated Android app.
+  const feat = [...apps].filter(a => a.category === 'android').sort((x, y) => (y.updated || '').localeCompare(x.updated || ''))[0];
+  if (feat) {
+    const f = $('#featured');
+    f.addEventListener('click', () => open(feat));
+    if (feat.screenshots?.[0]) f.append(el('img', { class: 'shot', src: feat.screenshots[0], alt: `${feat.name} screenshot` }));
+    f.append(el('div', { class: 'meta' }, el('img', { class: 'icon', src: feat.icon, alt: '' }),
+      el('div', { class: 'grow' }, el('div', { class: 'kicker' }, 'Latest update'), el('div', { class: 'name' }, feat.name), el('div', { class: 'tag' }, feat.tagline || '')),
+      installBtn(feat)));
+  } else $('#sec-featured').hidden = true;
+
+  const row = a => el('button', { class: 'row', type: 'button', onclick: () => open(a) },
+    el('img', { class: 'icon', src: a.icon, alt: '' }),
+    el('div', { class: 'grow' }, el('div', { class: 'name' }, a.name, ...(a.tags?.includes('Beta') ? [el('span', { class: 'badge' }, 'BETA')] : [])), el('div', { class: 'tag' }, a.tagline || ''), el('div', { class: 'fine' }, fine(a))),
+    installBtn(a));
+  const tile = a => el('button', { class: 'tile', type: 'button', onclick: () => open(a) },
+    el('img', { src: a.icon, alt: '' }), el('div', { class: 'name' }, a.name), el('div', { class: 'fine' }, `v${a.version} · ${MB(a.sizeBytes)}`), installBtn(a, 'btn ghost'));
+  const webCard = w => el('a', { class: 'web', href: w.url, target: '_blank', rel: 'noopener' },
+    w.cover ? el('img', { class: 'cover', src: w.cover, alt: '' }) : el('div', { class: 'ph', 'aria-hidden': 'true' }, (w.name || '?').slice(0, 2)),
+    el('div', { class: 'meta' }, el('div', { class: 'name' }, w.name), el('div', { class: 'tag' }, w.tagline || '')));
+
+  const fill = (id, items, make) => { const box = $(id); if (!items.length) { box.closest('section').hidden = true; return; } items.forEach(a => box.append(make(a))); };
+  fill('#list-android', apps.filter(a => a.category === 'android' && a !== feat), row);
+  fill('#list-wear', apps.filter(a => a.category === 'wear'), tile);
+  fill('#list-tv', apps.filter(a => a.category === 'tv'), row);
+  fill('#list-web', web, webCard);
+
+  // Category chips: "All" shows everything; otherwise only that category's sections.
+  const sections = [...document.querySelectorAll('section[data-cat]')];
+  const emptyOf = {};
+  sections.forEach(s => (emptyOf[s.id] = s.hidden));
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x === c ? 'true' : 'false'));
+    const cat = c.dataset.cat;
+    sections.forEach(s => (s.hidden = emptyOf[s.id] || (cat !== 'all' && s.dataset.cat !== cat)));
+  }));
+
+  // Detail sheet
+  const dlg = $('#sheet');
+  function open(a) {
+    $('#d-icon').src = a.icon; $('#d-name').textContent = a.name; $('#d-tagline').textContent = a.tagline || '';
+    const tags = $('#d-tags'); tags.replaceChildren(...(a.tags || []).map(t => el('span', {}, t)), el('span', {}, catLabel[a.category] || a.category));
+    $('#d-install').href = a.apk; $('#d-install-label').textContent = `Install · ${MB(a.sizeBytes)}`;
+    $('#d-version').textContent = a.version; $('#d-android').textContent = a.category === 'tv' ? 'TV' : andro(a.minSdk); $('#d-updated').textContent = day(a.updated); $('#d-package').textContent = a.package;
+    const shots = $('#d-shots'); shots.replaceChildren(...(a.screenshots || []).map(s => el('img', { src: s, alt: `${a.name} screenshot`, class: a.category === 'wear' ? 'wide' : '' }))); shots.hidden = !(a.screenshots || []).length;
+    $('#d-desc').textContent = a.description || a.tagline || '';
+    const repo = $('#d-repo'); repo.hidden = !a.repo; if (a.repo) repo.href = a.repo;
+    const links = $('#d-links'); links.replaceChildren(...(a.site ? [el('a', { class: 'btn ghost', href: a.site, target: '_blank', rel: 'noopener' }, 'Website')] : []), el('a', { class: 'btn ghost', href: `${a.apk}`, target: '_blank', rel: 'noopener' }, 'Direct APK link'));
+    history.replaceState(null, '', `#${a.slug}`);
+    dlg.showModal();
+  }
+  const close = () => { dlg.close(); history.replaceState(null, '', location.pathname); };
+  $('#d-close').addEventListener('click', close);
+  dlg.addEventListener('click', e => { if (e.target === dlg) close(); });
+  dlg.addEventListener('cancel', e => { e.preventDefault(); close(); });
+  const deep = apps.find(a => a.slug === location.hash.slice(1));
+  if (deep) open(deep);
+})();
+</script>
+</body>
 </html>
