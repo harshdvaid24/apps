@@ -49,7 +49,10 @@ TODAY="$(date +%F)"
 if ! gh release view "$SLUG" -R "$STORE_REPO" >/dev/null 2>&1; then
   gh release create "$SLUG" -R "$STORE_REPO" --title "$NAME" --notes "Latest APK of $NAME ($PKG). Updated automatically by publish-to-store.sh." >/dev/null
 fi
-gh release upload "$SLUG" "$APK#$ASSET" -R "$STORE_REPO" --clobber >/dev/null
+# The download URL uses the asset's file name (a "#label" only changes the display label), so upload a copy with the final name.
+TMPD="$(mktemp -d)"; cp "$APK" "$TMPD/$ASSET"
+gh release upload "$SLUG" "$TMPD/$ASSET" -R "$STORE_REPO" --clobber >/dev/null
+rm -rf "$TMPD"
 for old in $(gh release view "$SLUG" -R "$STORE_REPO" --json assets -q '.assets[].name'); do
   [ "$old" = "$ASSET" ] || gh release delete-asset "$SLUG" "$old" -R "$STORE_REPO" -y >/dev/null 2>&1 || true
 done
